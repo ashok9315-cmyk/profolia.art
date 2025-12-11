@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profolia - Creative Portfolio Generator</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7c3aed;
+            --dark: #0a0e27;
+            --darker: #050811;
+            --light: #e2e8f0;
+            --accent: #f59e0b;
+            --text: #94a3b8;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+            animation: float 25s ease-in-out infinite reverse;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, 30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+
+        /* Search Bar Section */
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .search-wrapper {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: rgba(10, 14, 39, 0.8);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-wrapper:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .search-wrapper input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--light);
+            font-size: 1rem;
+            outline: none;
+            padding: 0.5rem 1rem;
+            min-width: 0;
+        }
+
+        .search-wrapper input::placeholder {
+            color: rgba(148, 163, 184, 0.5);
+        }
+
+        .search-wrapper button {
+            padding: 0.7rem 1.8rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--darker);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .search-wrapper button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .search-wrapper button:active {
+            transform: scale(0.98);
+        }
+
+        /* Categories Section */
+        .categories {
+            position: relative;
+            z-index: 2;
+            margin-top: 3rem;
+        }
+
+        .categories h3 {
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .category-btn {
+            padding: 0.8rem 1.2rem;
+            background: rgba(124, 58, 237, 0.1);
+            color: var(--text);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover {
+            background: rgba(124, 58, 237, 0.2);
+            border-color: var(--secondary);
+            color: var(--primary);
+        }
+
+        /* Featured Portfolios */
+        .featured {
+            padding: 5rem 5%;
+            background: linear-gradient(180deg, transparent, rgba(124, 58, 237, 0.05));
+        }
+
+        .featured h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .portfolio-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .portfolio-card:hover::before {
+            left: 100%;
+        }
+
+        .portfolio-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.15);
+        }
+
+        .portfolio-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-card h3 {
+            font-size: 1.3rem;
+            color: var(--light);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-card p {
+            color: var(--text);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-card .followers {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(5, 8, 17, 0.9);
+            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            padding: 3rem 5%;
+            text-align: center;
+            color: var(--text);
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            nav a {
+                margin-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="/" class="logo">🎨 profolia</a>
+        <div>
+            <a href="#featured">Featured</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Showcase Your Creativity</h1>
+            <p>Build and share your stunning portfolio with the world. Perfect for photographers, musicians, dancers, technologists, and creative professionals.</p>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <form class="search-wrapper" id="searchForm" onsubmit="handleSearch(event)">
+                    <input 
+                        type="text" 
+                        id="searchInput"
+                        placeholder="Search portfolio (e.g., photosbyvetri, musicbyalex)" 
+                        autocomplete="off"
+                    >
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+
+            <!-- Categories -->
+            <div class="categories">
+                <h3>Popular Creators</h3>
+                <div class="category-grid">
+                    <button class="category-btn" onclick="goToPortfolio('photographer')">📷 Photographer</button>
+                    <button class="category-btn" onclick="goToPortfolio('musician')">🎵 Musician</button>
+                    <button class="category-btn" onclick="goToPortfolio('dancer')">💃 Dancer</button>
+                    <button class="category-btn" onclick="goToPortfolio('technologist')">💻 Technologist</button>
+                    <button class="category-btn" onclick="goToPortfolio('artist')">🎭 Artist</button>
+                    <button class="category-btn" onclick="goToPortfolio('designer')">✨ Designer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Portfolios -->
+    <section class="featured" id="featured">
+        <h2>Featured Creators</h2>
+        <div class="portfolio-grid">
+            <a href="photosbyvetri/" class="portfolio-card" style="text-decoration: none;">
+                <div class="portfolio-icon">📷</div>
+                <h3>photosbyvetri</h3>
+                <p>Professional Photography Portfolio</p>
+                <span class="followers">2.4K followers</span>
+            </a>
+
+            <a href="musicbyalex/" class="portfolio-card" style="text-decoration: none;">
+                <div class="portfolio-icon">🎵</div>
+                <h3>musicbyalex</h3>
+                <p>Electronic & Hip-Hop Producer</p>
+                <span class="followers">1.8K followers</span>
+            </a>
+
+            <a href="dancewithjoy/" class="portfolio-card" style="text-decoration: none;">
+                <div class="portfolio-icon">💃</div>
+                <h3>dancewithjoy</h3>
+                <p>Contemporary Dance Artist</p>
+                <span class="followers">3.2K followers</span>
+            </a>
+
+            <a href="codebysmith/" class="portfolio-card" style="text-decoration: none;">
+                <div class="portfolio-icon">💻</div>
+                <h3>codebysmith</h3>
+                <p>Full Stack Developer & Designer</p>
+                <span class="followers">4.1K followers</span>
+            </a>
+
+            <a href="artbycreate/" class="portfolio-card" style="text-decoration: none;">
+                <div class="portfolio-icon">🎨</div>
+                <h3>artbycreate</h3>
+                <p>Digital Art & Illustration</p>
+                <span class="followers">2.9K followers</span>
+            </a>
+
+            <a href="designstudio/" class="portfolio-card" style="text-decoration: none;">
+                <div class="portfolio-icon">✨</div>
+                <h3>designstudio</h3>
+                <p>Branding & UI/UX Design</p>
+                <span class="followers">5.3K followers</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ASHOK S All rights reserved. Built with passion and innovation.</p>
+        <p>Profolia - Your Creative Portfolio Platform</p>
+    </footer>
+
+    <script>
+        function handleSearch(event) {
+            event.preventDefault();
+            const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
+            
+            if (searchInput) {
+                // Navigate to portfolio
+                window.location.href = `${searchInput}/`;
+            }
+        }
+
+        function goToPortfolio(category) {
+            const examplePortfolios = {
+                'photographer': 'photosbyvetri',
+                'musician': 'musicbyalex',
+                'dancer': 'dancewithjoy',
+                'technologist': 'codebysmith',
+                'artist': 'artbycreate',
+                'designer': 'designstudio'
+            };
+            
+            const username = examplePortfolios[category] || category;
+            window.location.href = `${username}/`;
+        }
+
+        // Add focus effect to search input
+        document.getElementById('searchInput').addEventListener('focus', function() {
+            this.parentElement.style.borderColor = 'var(--primary)';
+        });
+
+        document.getElementById('searchInput').addEventListener('blur', function() {
+            this.parentElement.style.borderColor = 'rgba(0, 212, 255, 0.3)';
+        });
+    </script>
+</body>
+</html>
