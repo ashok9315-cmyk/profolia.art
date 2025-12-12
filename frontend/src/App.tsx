@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
+import ProfileFormPage from './pages/ProfileFormPage';
 import './App.css';
 
 function App() {
@@ -22,6 +23,12 @@ function App() {
               <DashboardPage />
             </PrivateRoute>
           } />
+
+                    <Route path="/profile/edit" element={
+                      <PrivateRoute>
+                        <ProfileFormPage />
+                      </PrivateRoute>
+                    } />
           
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
