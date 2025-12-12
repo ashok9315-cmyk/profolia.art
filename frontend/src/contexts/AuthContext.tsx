@@ -8,13 +8,18 @@ interface User {
 
 interface Profile {
   id: string;
+  userId: string;
   username: string;
   name: string;
   professionType: string;
   email?: string;
   phone?: string;
+  githubUrl?: string;
+  websiteUrl?: string;
+  resumeUrl?: string;
   bio?: string;
   skills?: string[];
+  customFields?: Record<string, any>;
   isPublished: boolean;
 }
 

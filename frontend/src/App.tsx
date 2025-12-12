@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import ProfileFormPage from './pages/ProfileFormPage';
+import MediaPage from './pages/MediaPage';
 import './App.css';
 
 function App() {
@@ -29,6 +30,12 @@ function App() {
                         <ProfileFormPage />
                       </PrivateRoute>
                     } />
+
+          <Route path="/media" element={
+            <PrivateRoute>
+              <MediaPage />
+            </PrivateRoute>
+          } />
           
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
