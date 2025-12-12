@@ -1,0 +1,83 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  passwordHash String    @map("password_hash")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+  
+  profile      Profile?
+  
+  @@map("users")
+}
+
+model Profile {
+  id                String    @id @default(uuid())
+  userId            String    @unique @map("user_id")
+  username          String    @unique
+  professionType    String    @map("profession_type") // technologist, photographer, musician, etc.
+  name              String
+  email             String?
+  phone             String?
+  githubUrl         String?   @map("github_url")
+  websiteUrl        String?   @map("website_url")
+  resumeUrl         String?   @map("resume_url")
+  bio               String?   @db.Text
+  skills            Json?     // Array of skills
+  customFields      Json?     @map("custom_fields") // Profession-specific fields
+  themePreferences  Json?     @map("theme_preferences")
+  isPublished       Boolean   @default(false) @map("is_published")
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+  
+  user              User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  mediaAssets       MediaAsset[]
+  generatedPortfolios GeneratedPortfolio[]
+  
+  @@map("profiles")
+}
+
+model MediaAsset {
+  id           String    @id @default(uuid())
+  profileId    String    @map("profile_id")
+  fileName     String    @map("file_name")
+  fileType     String    @map("file_type") // image, video, audio, document
+  fileUrl      String    @map("file_url")
+  fileSize     BigInt?   @map("file_size")
+  category     String?   // AI-generated category
+  tags         Json?     // AI-generated tags
+  metadata     Json?     // AI analysis results
+  displayOrder Int?      @map("display_order")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  
+  profile      Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  
+  @@map("media_assets")
+}
+
+model GeneratedPortfolio {
+  id                String    @id @default(uuid())
+  profileId         String    @map("profile_id")
+  htmlContent       String    @db.Text @map("html_content")
+  cssContent        String?   @db.Text @map("css_content")
+  templateVersion   String?   @map("template_version")
+  generationPrompt  String?   @db.Text @map("generation_prompt")
+  s3Url             String?   @map("s3_url")
+  cloudfrontUrl     String?   @map("cloudfront_url")
+  createdAt         DateTime  @default(now()) @map("created_at")
+  
+  profile           Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  
+  @@map("generated_portfolios")
+}

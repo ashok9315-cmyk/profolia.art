@@ -1,0 +1,8 @@
+I have Static website "https://www.profolia.art/" which is meant to allow creators to generate portfolio for free. But now it is static HTML sample site deployed in AWS Amplifiy using github repo "https://github.com/ashok9315-cmyk/profolia.art"
+Now I want make this dynamic Website using typescript,nodejs,expressjs. 
+App should have login and registration.
+Logged user can portfolio like "https://www.profolia.art/Ashok"
+Actually HTML site portfolio for Ashok was created using Github Copilot.
+Now we need feature to ask user to fill their basic details like email, name, phone number, github page, website and resume. And which those details site need created using AI for Technologist.
+For other user like Photographer, Musician, Dancer, Artist, Designer and other profession, App need get relevant details to build their portfolio using AI. Also incase they need showcase their work using media files like photos, videos, Audio and other file types, App need ask for archive of media files and for App need analyze using AI and categorize and show those in their portfolio.
+Also This profile creation need to taken care by AI and provide visually stunning site. 7.Always portfolio URL for user should be like this "https://www.profolia.art/Ashok" and to uniq. Our app need to suggest this profolio name.
