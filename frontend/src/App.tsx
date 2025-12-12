@@ -8,6 +8,7 @@ import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
 import ProfileFormPage from './pages/ProfileFormPage';
 import MediaPage from './pages/MediaPage';
+import PortfolioGeneratePage from './pages/PortfolioGeneratePage';
 import './App.css';
 
 function App() {
@@ -34,6 +35,12 @@ function App() {
           <Route path="/media" element={
             <PrivateRoute>
               <MediaPage />
+            </PrivateRoute>
+          } />
+
+          <Route path="/portfolio/generate" element={
+            <PrivateRoute>
+              <PortfolioGeneratePage />
             </PrivateRoute>
           } />
           
