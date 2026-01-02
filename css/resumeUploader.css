@@ -1,0 +1,306 @@
+/**
+ * Resume Uploader Styles
+ * Designed to integrate seamlessly with existing profolia.art styling
+ * Requirements: 6.1, 6.2, 6.6
+ */
+
+.resume-upload-wrapper {
+    max-width: 700px;
+    margin: 2rem auto;
+    font-family: inherit;
+}
+
+/* Upload Area Styles */
+.upload-area {
+    border: 2px dashed rgba(0, 212, 255, 0.3);
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.upload-area:hover {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 212, 255, 0.15);
+}
+
+.upload-area.drag-over {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.15) 0%, rgba(124, 58, 237, 0.15) 100%);
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+}
+
+.upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.upload-icon {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.upload-area:hover .upload-icon {
+    color: var(--accent);
+}
+
+.upload-content h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--light);
+}
+
+.upload-content p {
+    margin: 0;
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.file-requirements {
+    font-size: 0.875rem !important;
+    color: rgba(148, 163, 184, 0.7) !important;
+}
+
+.browse-button {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--darker);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.browse-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+}
+
+/* Progress Styles */
+.upload-progress {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.progress-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.progress-icon .spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #e1e5e9;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.progress-content h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.progress-bar {
+    width: 100%;
+    max-width: 400px;
+    height: 8px;
+    background: #e1e5e9;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+.progress-content p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+/* Success Styles */
+.upload-success {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.success-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.success-icon {
+    color: #28a745;
+    animation: successPulse 0.6s ease-out;
+}
+
+@keyframes successPulse {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.success-content h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.success-content p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.view-portfolio-button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.view-portfolio-button:hover {
+    background: #1e7e34;
+}
+
+/* Error Styles */
+.upload-error {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.error-icon {
+    color: #dc3545;
+}
+
+.error-content h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.error-content p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.retry-button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.retry-button:hover {
+    background: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .resume-upload-wrapper {
+        margin: 1rem;
+        max-width: none;
+    }
+    
+    .upload-area,
+    .upload-progress,
+    .upload-success,
+    .upload-error {
+        padding: 2rem 1rem;
+    }
+    
+    .upload-content h3,
+    .progress-content h3,
+    .success-content h3,
+    .error-content h3 {
+        font-size: 1.25rem;
+    }
+    
+    .progress-bar {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .upload-area,
+    .upload-progress,
+    .upload-success,
+    .upload-error {
+        padding: 1.5rem 1rem;
+    }
+    
+    .upload-icon,
+    .progress-icon,
+    .success-icon,
+    .error-icon {
+        transform: scale(0.8);
+    }
+    
+    .browse-button,
+    .view-portfolio-button,
+    .retry-button {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+    }
+}

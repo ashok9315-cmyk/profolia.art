@@ -1,0 +1,221 @@
+/**
+ * Data Privacy Interface Styles
+ * Consistent with profolia.art design language
+ */
+
+.data-privacy-panel {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+}
+
+.data-privacy-panel h3 {
+    color: #1f2937;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.data-privacy-panel p {
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.deletion-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.deletion-form label {
+    color: #374151;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.deletion-form input,
+.deletion-form select {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: #ffffff;
+}
+
+.deletion-form input:focus,
+.deletion-form select:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.deletion-form input::placeholder {
+    color: #9ca3af;
+}
+
+.delete-btn,
+.status-btn {
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-height: 48px;
+}
+
+.delete-btn {
+    background: #dc2626;
+    color: white;
+    margin-top: 1rem;
+}
+
+.delete-btn:hover:not(:disabled) {
+    background: #b91c1c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.delete-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.status-btn {
+    background: #3b82f6;
+    color: white;
+    margin-top: 0.5rem;
+}
+
+.status-btn:hover:not(:disabled) {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.status-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.result-panel {
+    margin-top: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    animation: slideIn 0.3s ease-out;
+}
+
+.result-panel.success {
+    background: #f0fdf4;
+    border-left-color: #22c55e;
+    color: #166534;
+}
+
+.result-panel.error {
+    background: #fef2f2;
+    border-left-color: #ef4444;
+    color: #991b1b;
+}
+
+.result-panel.warning {
+    background: #fffbeb;
+    border-left-color: #f59e0b;
+    color: #92400e;
+}
+
+.result-panel.info {
+    background: #eff6ff;
+    border-left-color: #3b82f6;
+    color: #1e40af;
+}
+
+.result-message {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.result-message strong {
+    font-weight: 600;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .data-privacy-panel {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .data-privacy-panel h3 {
+        font-size: 1.25rem;
+    }
+    
+    .deletion-form {
+        gap: 1.25rem;
+    }
+    
+    .delete-btn,
+    .status-btn {
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Dark mode support (if needed) */
+@media (prefers-color-scheme: dark) {
+    .data-privacy-panel {
+        background: #1f2937;
+        border-color: #374151;
+        color: #f9fafb;
+    }
+    
+    .data-privacy-panel h3 {
+        color: #f9fafb;
+    }
+    
+    .data-privacy-panel p {
+        color: #d1d5db;
+    }
+    
+    .deletion-form label {
+        color: #e5e7eb;
+    }
+    
+    .deletion-form input,
+    .deletion-form select {
+        background: #374151;
+        border-color: #4b5563;
+        color: #f9fafb;
+    }
+    
+    .deletion-form input::placeholder {
+        color: #9ca3af;
+    }
+}
