@@ -1,82 +1,62 @@
-`<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profolia - AI-Powered Creative Portfolio Generator | Professional Portfolio Website Builder</title>
+    <title>Profolia Production - AI-Powered Creative Portfolio Generator</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Create stunning professional portfolios for photographers, musicians, developers, and creative professionals. AI-powered portfolio generator with beautiful templates, responsive design, and advanced features.">
-    <meta name="keywords" content="portfolio generator, creative portfolio, professional portfolio, photographer portfolio, musician portfolio, developer portfolio, AI portfolio builder, web design, portfolio website, creative showcase">
+    <meta name="description" content="Production environment for Profolia - Create stunning professional portfolios with AI technology. Upload your resume and generate beautiful portfolios instantly.">
+    <meta name="keywords" content="portfolio generator, AI portfolio, resume to portfolio, professional portfolio, creative showcase">
     <meta name="author" content="ASHOK S">
     <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    <meta name="revisit-after" content="7 days">
-    <link rel="canonical" href="https://profolia.art/">
+    <link rel="canonical" href="https://prod.profolia.art/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://profolia.art/">
-    <meta property="og:title" content="Profolia - AI-Powered Creative Portfolio Generator">
-    <meta property="og:description" content="Create stunning professional portfolios with AI technology. Beautiful templates for photographers, musicians, developers, and creative professionals.">
-    <meta property="og:image" content="https://profolia.art/og-image.jpg">
-    <meta property="og:site_name" content="Profolia">
+    <meta property="og:url" content="https://prod.profolia.art/">
+    <meta property="og:title" content="Profolia Production - AI Portfolio Generator">
+    <meta property="og:description" content="Production environment for AI-powered portfolio generation. Upload your resume and create stunning portfolios instantly.">
+    <meta property="og:image" content="https://prod.profolia.art/og-image.jpg">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://profolia.art/">
-    <meta name="twitter:title" content="Profolia - AI-Powered Creative Portfolio Generator">
-    <meta name="twitter:description" content="Create stunning professional portfolios with AI technology. Beautiful templates for photographers, musicians, developers, and creative professionals.">
-    <meta name="twitter:image" content="https://profolia.art/og-image.jpg">
+    <meta name="twitter:url" content="https://prod.profolia.art/">
+    <meta name="twitter:title" content="Profolia Production - AI Portfolio Generator">
+    <meta name="twitter:description" content="Production environment for AI-powered portfolio generation.">
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+    
+    <!-- Production Configuration -->
+    <script src="config/prod.js"></script>
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/resumeUploader.css">
     <link rel="stylesheet" href="css/contentRenderer.css">
+    <link rel="stylesheet" href="css/prod.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav>
-        <a href="#" class="logo">🎨 profolia</a>
+        <a href="#" class="logo">🎨 profolia <span class="env-badge">PROD</span></a>
         <div>
-            <a href="#featured">Featured</a>
-            <a href="#ai">AI Capabilities</a>
             <a href="#upload">Upload Resume</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
+            <a href="#ai">AI Features</a>
+            <a href="#about">About</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="ai-badge">✨ Powered by AI Technology</div>
-            <h1>Showcase Your Creativity</h1>
-            <p>Build and share your stunning portfolio with the world. Perfect for photographers, musicians, dancers, technologists, and creative professionals.</p>
+            <div class="ai-badge">✨ Production Environment - AI Technology</div>
+            <h1>Transform Your Resume into a Stunning Portfolio</h1>
+            <p>Upload your resume and let our AI create a beautiful, professional portfolio in minutes. Perfect for job seekers, freelancers, and creative professionals.</p>
             
-            <!-- Search Bar -->
-            <div class="search-container">
-                <form class="search-wrapper" id="searchForm" onsubmit="handleSearch(event)">
-                    <input type="text" id="searchInput" 
-                           placeholder="Search portfolio (e.g., photosbyvetri, musicbyalex)" 
-                           autocomplete="off">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
-            
-            <!-- Categories -->
-            <div class="categories">
-                <h3>Popular Creators</h3>
-                <div class="category-grid">
-                    <button class="category-btn" onclick="goToPortfolio('photographer')">📷 Photographer</button>
-                    <button class="category-btn" onclick="goToPortfolio('musician')">🎵 Musician</button>
-                    <button class="category-btn" onclick="goToPortfolio('dancer')">💃 Dancer</button>
-                    <button class="category-btn" onclick="goToPortfolio('technologist')">💻 Technologist</button>
-                    <button class="category-btn" onclick="goToPortfolio('artist')">🎭 Artist</button>
-                    <button class="category-btn" onclick="goToPortfolio('designer')">✨ Designer</button>
-                </div>
+            <div class="cta-buttons">
+                <a href="#upload" class="cta-primary">Upload Resume Now</a>
+                <a href="#ai" class="cta-secondary">Learn About AI Features</a>
             </div>
         </div>
     </section>
@@ -85,10 +65,30 @@
     <section class="upload-section" id="upload">
         <div class="container">
             <h2>Create Your AI-Enhanced Portfolio</h2>
-            <p class="upload-subtitle">Upload your resume and let our AI transform it into a stunning portfolio</p>
+            <p class="upload-subtitle">Upload your resume (PDF or DOCX) and watch our AI transform it into a stunning portfolio</p>
             
             <!-- Resume Uploader Component -->
             <div id="resumeUploaderContainer"></div>
+            
+            <!-- Features List -->
+            <div class="features-list">
+                <div class="feature-item">
+                    <span class="feature-icon">🤖</span>
+                    <span>AI-powered content enhancement</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <span>Instant portfolio generation</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎨</span>
+                    <span>Professional design templates</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📱</span>
+                    <span>Mobile-responsive design</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -96,50 +96,12 @@
     <section id="portfolio" class="portfolio-display-section" style="display: none;">
         <div class="container">
             <h2>Your AI-Enhanced Portfolio</h2>
+            <div class="portfolio-controls">
+                <button id="toggleOriginal" class="toggle-btn">Show Original</button>
+                <button id="toggleEnhanced" class="toggle-btn active">Show AI Enhanced</button>
+                <button id="downloadPortfolio" class="download-btn">Download Portfolio</button>
+            </div>
             <div id="portfolioContent"></div>
-        </div>
-    </section>
-
-    <!-- Featured Portfolios -->
-    <section class="featured" id="featured">
-        <h2>Featured Creators</h2>
-        <div class="portfolio-grid">
-            <a href="photosbyvetri/" class="portfolio-card" style="text-decoration: none;">
-                <div class="portfolio-icon">📷</div>
-                <h3>photosbyvetri</h3>
-                <p>Professional Photography Portfolio</p>
-                <span class="followers">2.4K followers</span>
-            </a>
-            <a href="musicbyalex/" class="portfolio-card" style="text-decoration: none;">
-                <div class="portfolio-icon">🎵</div>
-                <h3>musicbyalex</h3>
-                <p>Electronic & Hip-Hop Producer</p>
-                <span class="followers">1.8K followers</span>
-            </a>
-            <a href="dancewithjoy/" class="portfolio-card" style="text-decoration: none;">
-                <div class="portfolio-icon">💃</div>
-                <h3>dancewithjoy</h3>
-                <p>Contemporary Dance Artist</p>
-                <span class="followers">3.2K followers</span>
-            </a>
-            <a href="codebysmith/" class="portfolio-card" style="text-decoration: none;">
-                <div class="portfolio-icon">💻</div>
-                <h3>codebysmith</h3>
-                <p>Full Stack Developer & Designer</p>
-                <span class="followers">4.1K followers</span>
-            </a>
-            <a href="artbycreate/" class="portfolio-card" style="text-decoration: none;">
-                <div class="portfolio-icon">🎨</div>
-                <h3>artbycreate</h3>
-                <p>Digital Art & Illustration</p>
-                <span class="followers">2.9K followers</span>
-            </a>
-            <a href="designstudio/" class="portfolio-card" style="text-decoration: none;">
-                <div class="portfolio-icon">✨</div>
-                <h3>designstudio</h3>
-                <p>Branding & UI/UX Design</p>
-                <span class="followers">5.3K followers</span>
-            </a>
         </div>
     </section>
 
@@ -147,234 +109,101 @@
     <section class="ai-section" id="ai">
         <h2>AI-Powered Portfolio Generation</h2>
         <div class="ai-content">
-            <p>Create stunning professional portfolios effortlessly with our cutting-edge AI capabilities. We leverage <strong>Generative AI</strong>, <strong>Retrieval-Augmented Generation (RAG)</strong>, and <strong>Model Context Protocol (MCP)</strong> to deliver personalized, intelligent portfolio solutions tailored to your creative needs.</p>
+            <p>Our production system uses advanced AI to transform your resume into a compelling portfolio:</p>
         </div>
         <div class="ai-features">
             <div class="ai-feature">
-                <div class="ai-feature-icon">🤖</div>
-                <h3>Generative AI</h3>
-                <p>Intelligent content generation and design suggestions powered by advanced language models</p>
+                <div class="ai-feature-icon">📄</div>
+                <h3>Smart Resume Parsing</h3>
+                <p>Intelligent extraction of your experience, skills, and achievements from PDF and DOCX files</p>
             </div>
             <div class="ai-feature">
-                <div class="ai-feature-icon">🔍</div>
-                <h3>RAG Technology</h3>
-                <p>Context-aware portfolio optimization using retrieval-augmented generation for better personalization</p>
+                <div class="ai-feature-icon">✨</div>
+                <h3>Content Enhancement</h3>
+                <p>AI-powered rewriting of job descriptions and achievements for maximum impact</p>
             </div>
             <div class="ai-feature">
-                <div class="ai-feature-icon">🔗</div>
-                <h3>MCP Integration</h3>
-                <p>Seamless Model Context Protocol implementation for enhanced system interoperability</p>
+                <div class="ai-feature-icon">🎯</div>
+                <h3>Professional Optimization</h3>
+                <p>Industry-specific keyword suggestions and professional summary generation</p>
+            </div>
+            <div class="ai-feature">
+                <div class="ai-feature-icon">🔄</div>
+                <h3>Real-time Preview</h3>
+                <p>Compare original vs AI-enhanced content with toggle functionality</p>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <h2>Our Comprehensive IT Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🌐</div>
-                <h3>Website Creation</h3>
-                <p>Beautiful, responsive websites designed and developed with modern technologies for optimal user experience.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">HTML5</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">JavaScript</span>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🎨</div>
-                <h3>AI Solutions</h3>
-                <p>Custom AI-powered solutions including chatbots, recommendation engines, and intelligent automation.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Generative AI</span>
-                    <span class="tech-tag">RAG</span>
-                    <span class="tech-tag">MCP</span>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💼</div>
-                <h3>IT Consulting</h3>
-                <p>Expert IT solutions and consulting services to transform your business with technology.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Strategy</span>
-                    <span class="tech-tag">Architecture</span>
-                    <span class="tech-tag">Optimization</span>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🛒</div>
-                <h3>E-Commerce Solutions</h3>
-                <p>Full-featured shopping cart applications with inventory management and secure transactions.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">Node.js</span>
-                    <span class="tech-tag">MongoDB</span>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💳</div>
-                <h3>Payment Integration</h3>
-                <p>Seamless payment gateway integration supporting multiple payment methods and currencies.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Stripe</span>
-                    <span class="tech-tag">PayPal</span>
-                    <span class="tech-tag">Razorpay</span>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">⚙️</div>
-                <h3>Custom Development</h3>
-                <p>Tailored software development services for web, mobile, and enterprise applications.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Full Stack</span>
-                    <span class="tech-tag">Cloud</span>
-                    <span class="tech-tag">DevOps</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <h2>Get In Touch</h2>
-        <p class="contact-section-subtitle">Ready to create your stunning portfolio? Let's discuss your project and bring your creative vision to life.</p>
-        
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <div class="contact-item">
-                    <div class="contact-item-icon">📧</div>
-                    <div>
-                        <h4>Email</h4>
-                        <a href="mailto:ashok9315@gmail.com">ashok9315@gmail.com</a>
-                        <p>Get in touch for project inquiries</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-item-icon">📱</div>
-                    <div>
-                        <h4>Phone</h4>
-                        <a href="tel:+918939876461">+91-8939876461</a>
-                        <p>Available for consultations</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-item-icon">💼</div>
-                    <div>
-                        <h4>LinkedIn</h4>
-                        <a href="https://linkedin.com/in/ashok9315" target="_blank">linkedin.com/in/ashok9315</a>
-                        <p>Connect professionally</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-item-icon">💻</div>
-                    <div>
-                        <h4>GitHub</h4>
-                        <a href="https://github.com/ashok9315-cmyk" target="_blank">github.com/ashok9315-cmyk</a>
-                        <p>View my code repositories</p>
-                    </div>
-                </div>
-            </div>
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2>About This Production Environment</h2>
+            <p>This is the production environment for Profolia's AI-powered portfolio generator. Here you can:</p>
+            <ul>
+                <li>Upload your resume and get instant AI-enhanced portfolios</li>
+                <li>Experience the full production API with real-time processing</li>
+                <li>Test all features including content enhancement and preview modes</li>
+                <li>Generate professional portfolios ready for sharing</li>
+            </ul>
             
-            <div class="contact-form-container">
-                <h3 class="form-title">Send a Message</h3>
-                <form class="contact-form" onsubmit="handleContactSubmit(event)">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Your full name">
+            <div class="tech-info">
+                <h3>Technical Details</h3>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <strong>API Endpoint:</strong>
+                        <code>https://et0ybn33zg.execute-api.us-east-1.amazonaws.com/prod</code>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    <div class="tech-item">
+                        <strong>Environment:</strong>
+                        <span class="env-production">Production</span>
                     </div>
-                    <div class="form-group">
-                        <label for="service">Service Interest</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service</option>
-                            <option value="Portfolio Creation">Portfolio Creation</option>
-                            <option value="Website Development">Website Development</option>
-                            <option value="AI Solutions">AI Solutions</option>
-                            <option value="IT Consulting">IT Consulting</option>
-                            <option value="E-Commerce">E-Commerce Solutions</option>
-                            <option value="Custom Development">Custom Development</option>
-                        </select>
+                    <div class="tech-item">
+                        <strong>AI Features:</strong>
+                        <span>Content Enhancement, Smart Parsing, Professional Optimization</span>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required placeholder="Tell us about your project requirements..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 ASHOK S All rights reserved. Built with passion and innovation.</p>
-        <p>Profolia - Your Creative Portfolio Platform</p>
+        <p>&copy; 2025 ASHOK S - Profolia Production Environment</p>
+        <p>AI-Powered Portfolio Generation System</p>
     </footer>
 
     <!-- JavaScript Files -->
     <script src="js/apiClient.js"></script>
     <script src="js/resumeUploader.js"></script>
     <script src="js/contentRenderer.js"></script>
-    <script src="js/main.js"></script>
-
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Profolia",
-        "url": "https://profolia.art",
-        "logo": "https://profolia.art/logo.png",
-        "description": "AI-powered creative portfolio generator for photographers, musicians, developers, and creative professionals",
-        "founder": {
-            "@type": "Person",
-            "name": "ASHOK S"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+91-8939876461",
-            "email": "ashok9315@gmail.com",
-            "contactType": "Customer Service"
-        },
-        "sameAs": [
-            "https://linkedin.com/in/ashok9315",
-            "https://github.com/ashok9315-cmyk"
-        ]
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Profolia",
-        "url": "https://profolia.art",
-        "description": "Create stunning professional portfolios with AI technology",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://profolia.art/{search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Portfolio Generation",
-        "provider": {
-            "@type": "Organization",
-            "name": "Profolia"
-        },
-        "areaServed": "Worldwide",
-        "description": "AI-powered portfolio generation service with Generative AI, RAG, and MCP technologies"
-    }
+    <script>
+        // Initialize the resume uploader when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Profolia Production Environment Loaded');
+            console.log('API Configuration:', window.PROFOLIA_CONFIG);
+            
+            // Initialize resume uploader
+            const uploader = new ResumeUploader('resumeUploaderContainer');
+            
+            // Handle portfolio ready event
+            document.addEventListener('portfolioReady', function(event) {
+                const portfolioSection = document.getElementById('portfolio');
+                portfolioSection.style.display = 'block';
+                portfolioSection.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

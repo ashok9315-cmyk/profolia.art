@@ -7,10 +7,14 @@
 class ResumeUploader {
     constructor(containerId, options = {}) {
         this.container = document.getElementById(containerId);
+        
+        // Use global config if available, otherwise use options or defaults
+        const config = window.PROFOLIA_CONFIG || {};
         this.options = {
             maxFileSize: 5 * 1024 * 1024, // 5MB
             allowedTypes: ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
-            apiBaseUrl: options.apiBaseUrl || '/api',
+            apiBaseUrl: config.apiBaseUrl || options.apiBaseUrl || '/api',
+            apiKey: config.apiKey || options.apiKey,
             ...options
         };
         
@@ -196,8 +200,18 @@ class ResumeUploader {
             this.updateProgress(10, 'Uploading file...');
             
             // Upload file
+            const headers = {
+                // Don't set Content-Type for FormData, let browser set it with boundary
+            };
+            
+            // Add API key if available
+            if (this.options.apiKey) {
+                headers['X-API-Key'] = this.options.apiKey;
+            }
+            
             const response = await fetch(`${this.options.apiBaseUrl}/upload-resume`, {
                 method: 'POST',
+                headers: headers,
                 body: formData
             });
             
@@ -227,7 +241,14 @@ class ResumeUploader {
         
         while (attempts < maxAttempts) {
             try {
-                const response = await fetch(`${this.options.apiBaseUrl}/processing-status/${this.currentJobId}`);
+                const headers = {};
+                if (this.options.apiKey) {
+                    headers['X-API-Key'] = this.options.apiKey;
+                }
+                
+                const response = await fetch(`${this.options.apiBaseUrl}/processing-status/${this.currentJobId}`, {
+                    headers: headers
+                });
                 
                 if (!response.ok) {
                     throw new Error('Failed to check processing status');
