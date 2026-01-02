@@ -3,19 +3,19 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "🎨 Profolia.art - Starting build process..."
-        - echo "App ID: d10qbw063k57ps"
-        - echo "API Endpoint: https://et0ybn33zg.execute-api.us-east-1.amazonaws.com/prod"
+        - echo "Profolia.art - Starting build process..."
+        - echo "App ID d10qbw063k57ps"
+        - echo "API Endpoint https://et0ybn33zg.execute-api.us-east-1.amazonaws.com/prod"
     build:
       commands:
-        - echo "📁 Preparing static files..."
-        - echo "✅ HTML, CSS, and JavaScript files ready"
-        - echo "🔗 API integration configured"
-        - echo "🎯 Resume upload functionality enabled"
+        - echo "Preparing static files..."
+        - echo "HTML, CSS, and JavaScript files ready"
+        - echo "API integration configured"
+        - echo "Resume upload functionality enabled"
     postBuild:
       commands:
-        - echo "🚀 Build completed successfully!"
-        - echo "📊 Files ready for deployment"
+        - echo "Build completed successfully!"
+        - echo "Files ready for deployment"
         - ls -la
   artifacts:
     baseDirectory: /
@@ -36,7 +36,7 @@ customHeaders:
       - key: 'Referrer-Policy'
         value: 'strict-origin-when-cross-origin'
       - key: 'Content-Security-Policy'
-        value: "default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; connect-src 'self' https://et0ybn33zg.execute-api.us-east-1.amazonaws.com;"
+        value: "default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; connect-src 'self' https://et0ybn33zg.execute-api.us-east-1.amazonaws.com"
   - pattern: '*.css'
     headers:
       - key: 'Cache-Control'
