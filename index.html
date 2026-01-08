@@ -423,6 +423,121 @@
             margin-bottom: 0;
         }
 
+        /* Resume Upload Section */
+        .upload-section {
+            padding: 5rem 5%;
+            background: var(--darker);
+        }
+
+        .upload-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--light);
+            font-weight: 700;
+        }
+
+        .upload-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 3rem;
+        }
+
+        .upload-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: transparent;
+            border: 3px dashed rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-container:hover {
+            border-color: var(--primary);
+            background: rgba(0, 212, 255, 0.02);
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-title {
+            font-size: 1.8rem;
+            color: var(--light);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .upload-description {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-file-types {
+            font-size: 0.9rem;
+            color: rgba(148, 163, 184, 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .upload-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .upload-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 212, 255, 0.4);
+        }
+
+        .upload-button:active {
+            transform: translateY(-1px);
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .upload-disabled-message {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(251, 146, 60, 0.2) 100%);
+            border: 2px solid var(--accent);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .upload-disabled-message .message-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .upload-disabled-message .message-text {
+            font-size: 1.3rem;
+            color: var(--light);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-disabled-message .message-subtext {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
         /* Services Section */
         .services {
             padding: 5rem 5%;
@@ -797,6 +912,21 @@
         </div>
     </section>
 
+    <!-- Resume Upload Section -->
+    <section class="upload-section" id="upload">
+        <h2>Create Your AI-Enhanced Portfolio</h2>
+        <p class="upload-subtitle">Upload your resume and let our AI transform it into a stunning portfolio</p>
+        
+        <div class="upload-container" onclick="document.getElementById('fileInput').click()">
+            <div class="upload-icon">📄</div>
+            <div class="upload-title">Upload Your Resume</div>
+            <p class="upload-description">Drag and drop your resume here, or click to browse</p>
+            <p class="upload-file-types">Supports PDF and DOCX files up to 5MB</p>
+            <button class="upload-button" type="button">Choose File</button>
+            <input type="file" id="fileInput" accept=".pdf,.docx" />
+        </div>
+    </section>
+
     <!-- Featured Portfolios -->
     <section class="featured" id="featured">
         <h2>Featured Creators</h2>
@@ -1004,6 +1134,24 @@
             // Reset form
             event.target.reset();
         }
+
+        // Handle file upload
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            event.preventDefault();
+            // Reset the file input
+            this.value = '';
+            // Show message in container
+            const uploadContainer = document.querySelector('.upload-container');
+            uploadContainer.innerHTML = `
+                <div class="upload-disabled-message">
+                    <div class="message-icon">⚠️</div>
+                    <div class="message-text">This feature has been turned off temporarily</div>
+                    <div class="message-subtext">We're working on improvements. Please check back soon!</div>
+                </div>
+            `;
+            uploadContainer.style.cursor = 'default';
+            uploadContainer.onclick = null;
+        });
     </script>
     
     <!-- Structured Data (JSON-LD) -->
