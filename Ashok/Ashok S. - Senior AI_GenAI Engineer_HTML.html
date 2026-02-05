@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashok S. - Senior AI/GenAI Engineer</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.45;
+            color: #333;
+            background: white;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 11mm;
+            margin: 0 auto;
+            background: white;
+            page-break-after: always;
+            position: relative;
+        }
+        
+        .page:last-child {
+            page-break-after: auto;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .header h1 {
+            font-size: 30px;
+            color: #2c3e50;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+        
+        .contact-info {
+            font-size: 10.5px;
+            color: #555;
+            margin-top: 6px;
+        }
+        
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .summary {
+            background: #f8f9fa;
+            padding: 12px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 15px;
+            font-size: 10.5px;
+            text-align: justify;
+        }
+        
+        .keyword {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .section {
+            margin-bottom: 14px;
+        }
+        
+        .section-title {
+            font-size: 15px;
+            color: #2c3e50;
+            font-weight: 700;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 4px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title::before {
+            content: "🎯";
+            margin-right: 6px;
+            font-size: 16px;
+        }
+        
+        .section-title.skills::before { content: "🛠"; }
+        .section-title.experience::before { content: "💼"; }
+        .section-title.education::before { content: "🎓"; }
+        .section-title.projects::before { content: "🚀"; }
+        .section-title.awards::before { content: "🏅"; }
+        .section-title.accomplishments::before { content: "🏆"; }
+        
+        .competencies {
+            font-size: 10.5px;
+            line-height: 1.65;
+            color: #444;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+            font-size: 10.5px;
+            line-height: 1.3;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 6px 8px;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+            line-height: 1.4;
+        }
+        
+        .skill-category strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 3px;
+            font-size: 11px;
+        }
+        
+        .job {
+            margin-bottom: 13px;
+            page-break-inside: avoid;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+        
+        .job-title {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .company {
+            font-size: 11.5px;
+            color: #3498db;
+            font-weight: 600;
+        }
+        
+        .job-date {
+            font-size: 10.5px;
+            color: #7f8c8d;
+            white-space: nowrap;
+        }
+        
+        .job-project {
+            font-size: 10.5px;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 6px;
+        }
+        
+        .job ul {
+            list-style: none;
+            padding-left: 0;
+            font-size: 10.5px;
+        }
+        
+        .job li {
+            padding-left: 15px;
+            margin-bottom: 4px;
+            position: relative;
+            text-align: justify;
+        }
+        
+        .job li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+        }
+        
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            font-size: 10.5px;
+        }
+        
+        .award-item {
+            background: #f8f9fa;
+            padding: 6px;
+            border-radius: 5px;
+            border-left: 3px solid #e74c3c;
+        }
+        
+        .accomplishments-list {
+            list-style: none;
+            padding-left: 0;
+            font-size: 10.5px;
+        }
+        
+        .accomplishments-list li {
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 5px;
+        }
+        
+        .accomplishments-list li::before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: #f39c12;
+            font-weight: bold;
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            font-size: 10.5px;
+        }
+        
+        .edu-item, .cert-item {
+            background: #f8f9fa;
+            padding: 6px;
+            border-radius: 5px;
+        }
+        
+        .cert-item {
+            border-left: 3px solid #27ae60;
+        }
+        
+        .edu-item strong, .cert-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        .project {
+            margin-bottom: 9px;
+            page-break-inside: avoid;
+        }
+        
+        .project-title {
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 2px;
+        }
+        
+        .project-link {
+            font-size: 9.5px;
+            color: #3498db;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .project-desc {
+            font-size: 10.5px;
+            color: #555;
+            text-align: justify;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .page {
+                margin: 0;
+                padding: 11mm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE 1 -->
+    <div class="page">
+        <div class="header">
+            <h1>ASHOK S.</h1>
+            <div class="contact-info">
+                📧 ashok9315@gmail.com | 📱 +91-8939876461 | 🔗 <a href=" https://www.linkedin.com/in/ashok9315/">LinkedIn</a> | 💻 <a href=" https://github.com/ashok9315-cmyk">GitHub</a> | 🌐 <a href="https://www.profolia.art/Ashok">Portfolio</a>
+            </div>
+        </div>
+        
+        <div class="summary">
+            AI & DevOps professional with 10.8 years of expertise in automation, cloud solutions, and AI-driven application development. Specialized in implementing <span class="keyword">Generative AI</span>, <span class="keyword">LLMs</span>, <span class="keyword">RAG</span>, and <span class="keyword">agentic AI</span> solutions to build production-grade AI systems. Expert in <span class="keyword">AWS</span> cloud platform, <span class="keyword">AWS Bedrock</span>, and <span class="keyword">AWS SageMaker</span>, with demonstrated success in modernizing legacy systems into scalable microservices architectures. Certified in <span class="keyword">AWS</span> and <span class="keyword">Databricks AI</span>, with recognized expertise in <span class="keyword">prompt engineering</span>, AI model integration, and <span class="keyword">TypeScript/JavaScript</span> development.
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="competencies">
+                <span class="keyword">Generative AI</span> & <span class="keyword">LLM Integration</span> | <span class="keyword">Cloud Modernization</span> & <span class="keyword">Migration</span> | <span class="keyword">Enterprise Automation</span> | <span class="keyword">Proactive Monitoring</span> & <span class="keyword">Observability</span> | Technical Mentorship | Business Application Enhancement | <span class="keyword">Performance Optimization</span> & Risk Mitigation | Cross-functional Collaboration | Continuous Learning & Upskilling | Solution Innovation
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title awards">Awards & Recognition</h2>
+            <div class="awards-grid">
+                <div class="award-item">Spirit of Chennai Award</div>
+                <div class="award-item">Agile Imaginative Award for Value-Added Deliverables</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title accomplishments">Key Accomplishments</h2>
+            <ul class="accomplishments-list">
+                <li>Designed and implemented <span class="keyword">AI-assisted dashboards</span>, reducing monitoring blind spots by <span class="keyword">70%</span></li>
+                <li>Reduced repetitive data processing efforts by <span class="keyword">40%</span> using <span class="keyword">GenAI-powered automation</span> solutions</li>
+                <li>Enhanced application error detection accuracy by <span class="keyword">75%</span> using <span class="keyword">AI-driven anomaly detection</span> tools</li>
+                <li>Improved cloud resource utilization efficiency by <span class="keyword">20%</span> through <span class="keyword">serverless and containerized deployments</span></li>
+                <li>Accelerated <span class="keyword">monolith-to-microservices migration</span>, improving deployment predictability by <span class="keyword">30%</span></li>
+                <li>Optimized cross-functional team workflows, resulting in <span class="keyword">20% improvement</span> in collaborative project delivery efficiency</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title skills">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <strong>Programming Languages</strong>
+                    <span class="keyword">TypeScript</span>, <span class="keyword">JavaScript</span>, <span class="keyword">Python</span>, <span class="keyword">NodeJS</span>, Java, Shell Scripting, SQL, PL/SQL
+                </div>
+                <div class="skill-category">
+                    <strong>AI/ML Frameworks</strong>
+                    <span class="keyword">LangChain</span>, <span class="keyword">LangGraph</span>, <span class="keyword">Databricks AI</span>, CosmosAI, <span class="keyword">ClaudeAI</span>, <span class="keyword">Hugging Face</span>, <span class="keyword">PyTorch</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Vector & Databases</strong>
+                    <span class="keyword">Pinecone</span>, <span class="keyword">Chroma</span>, <span class="keyword">FAISS</span>, Qdrant, <span class="keyword">pgvector</span>, <span class="keyword">PostgreSQL</span>, Oracle, MongoDB
+                </div>
+                <div class="skill-category">
+                    <strong>AWS Cloud Services</strong>
+                    <span class="keyword">Bedrock</span>, <span class="keyword">SageMaker</span>, <span class="keyword">Lambda</span>, S3, EC2, CodePipeline, <span class="keyword">Comprehend</span>, <span class="keyword">Kendra</span>, <span class="keyword">Textract</span>, SageMaker Data Wrangler, Guardrails, <span class="keyword">Bedrock Knowledge Base</span>, <span class="keyword">Bedrock Agent Runtime</span>, Transcribe, <span class="keyword">Rekognition</span>, Lex, <span class="keyword">Augmented AI</span>
+                </div>
+                <div class="skill-category">
+                    <strong>DevOps & CI/CD</strong>
+                    <span class="keyword">Jenkins</span>, Git, <span class="keyword">Terraform</span>, <span class="keyword">Docker</span>, <span class="keyword">Kubernetes</span>, Artifactory, Pipeline Automation
+                </div>
+                <div class="skill-category">
+                    <strong>Monitoring Tools</strong>
+                    <span class="keyword">Grafana</span>, <span class="keyword">Prometheus</span>, Kibana, <span class="keyword">MLOps</span> Monitoring
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title education">Education & Certifications</h2>
+            <div class="education-grid">
+                <div class="edu-item">
+                    <strong>MCA</strong>
+                    Anna University
+                </div>
+                <div class="edu-item">
+                    <strong>B.Sc. Computer Science</strong>
+                    Bishop Heber College
+                </div>
+                <div class="cert-item">
+                    <strong>AWS Certified Cloud Practitioner</strong>
+                    AWS Knowledge: Serverless | AWS Well-Architected Proficient
+                </div>
+                <div class="cert-item">
+                    <strong>Databricks AI Certifications</strong>
+                    Generative AI | AI Agent | AI Security
+                </div>
+                <div class="cert-item">
+                    <strong>Diploma in Innovation Management</strong>
+                    IBM Institute, Berlin
+                </div>
+                <div class="cert-item">
+                    <strong>Diploma in Sustainable Management</strong>
+                    IBM Institute, Berlin
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE 2 -->
+    <div class="page">
+        <div class="section">
+            <h2 class="section-title experience">Professional Experience</h2>
+            
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">DevOps Engineer 3</div>
+                        <div class="company">ADITI</div>
+                    </div>
+                    <div class="job-date">Oct 2024 – Jul 2025</div>
+                </div>
+                <div class="job-project">Project: PayPal (Payment & Instrument Vault)</div>
+                <ul>
+                    <li>Architected and deployed production-grade AI chatbot leveraging <span class="keyword">LLMs</span>, <span class="keyword">RAG architecture</span>, <span class="keyword">LangChain</span>, and <span class="keyword">CosmosAI</span> for PayPal Funding Instrument Platform, processing 10K+ queries with 95% accuracy</li>
+                    <li>Built <span class="keyword">multi-agent AI systems</span> using <span class="keyword">LangGraph</span> and <span class="keyword">ClaudeAI</span> to orchestrate complex workflows, automating payment instrument validation and fraud detection pipelines</li>
+                    <li>Implemented <span class="keyword">vector database</span> solutions using <span class="keyword">Pinecone</span> for semantic search and document retrieval, enabling sub-second query responses on 100K+ financial documents</li>
+                    <li>Developed <span class="keyword">TypeScript/JavaScript</span> APIs integrating <span class="keyword">LangChain agents</span> with backend microservices, enabling real-time AI-powered decision making in payment workflows</li>
+                    <li>Engineered <span class="keyword">AWS Bedrock</span> integration for foundation model deployment, optimizing inference costs by 35% while maintaining performance SLAs</li>
+                    <li>Built <span class="keyword">MLOps pipelines</span> using <span class="keyword">AWS SageMaker</span> and <span class="keyword">Docker</span> for continuous model training, evaluation, and deployment with automated rollback capabilities</li>
+                    <li>Designed comprehensive AI observability dashboards in <span class="keyword">Grafana</span> tracking model performance metrics, token usage, latency, and accuracy across production environments</li>
+                    <li>Implemented <span class="keyword">prompt engineering</span> frameworks with version control and A/B testing, improving response quality by 45% and reducing hallucinations</li>
+                    <li>Automated recurring production tasks using <span class="keyword">GenAI</span>-powered scripts, reducing manual operational efforts by 40% and improving team efficiency</li>
+                    <li>Established AI governance and security protocols, including PII detection, content filtering, and compliance monitoring for financial regulations</li>
+                </ul>
+            </div>
+            
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Senior Software Engineer</div>
+                        <div class="company">AgileAxis Pvt. Ltd</div>
+                    </div>
+                    <div class="job-date">Sep 2022 – Sep 2024</div>
+                </div>
+                <div class="job-project">Project: AthenaHealth (Rules 2.0 Migration)</div>
+                <ul>
+                    <li>Led development of AI-powered healthcare rules engine using <span class="keyword">LangChain</span> and <span class="keyword">LLMs</span> to automate medical billing validation, reducing processing time by 60%</li>
+                    <li>Architected <span class="keyword">RAG-based system</span> for medical code classification, integrating <span class="keyword">vector databases (Pinecone)</span> with healthcare knowledge bases to achieve 92% accuracy</li>
+                    <li>Built intelligent document processing pipeline using <span class="keyword">GenAI models</span> to extract and classify medical claims data from unstructured documents, processing 50K+ documents daily</li>
+                    <li>Developed <span class="keyword">TypeScript/NodeJS</span> microservices integrating <span class="keyword">AI agents</span> with legacy healthcare systems, enabling real-time clinical decision support</li>
+                    <li>Implemented <span class="keyword">AWS Lambda</span> and <span class="keyword">AWS Bedrock</span> serverless architecture for AI model inference, achieving 99.9% uptime and handling 1M+ daily requests</li>
+                    <li>Created <span class="keyword">prompt templates</span> library and optimization framework, standardizing AI interactions across 15+ healthcare applications</li>
+                    <li>Designed <span class="keyword">MLOps workflows</span> with automated testing, model versioning, and deployment using <span class="keyword">CI/CD pipelines</span> and <span class="keyword">Docker</span> containers</li>
+                    <li>Led team of 8 engineers in migrating monolithic healthcare application to microservices architecture, improving scalability and deployment frequency by 10x</li>
+                    <li>Established <span class="keyword">AI model monitoring</span> and performance tracking dashboards, enabling proactive identification and resolution of model drift</li>
+                    <li>Conducted rigorous code reviews and implemented AI governance best practices, ensuring HIPAA compliance and data privacy</li>
+                </ul>
+            </div>
+            
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Support Lead</div>
+                        <div class="company">Standard Chartered</div>
+                    </div>
+                    <div class="job-date">Jan 2021 – Sep 2022</div>
+                </div>
+                <div class="job-project">Project: ICDD (Integrated Client Due Diligence)</div>
+                <ul>
+                    <li>Automated application release and deployment processes using <span class="keyword">Jenkins</span> and <span class="keyword">Rundeck</span>, increasing operational efficiency and reducing deployment time</li>
+                    <li>Managed <span class="keyword">load-balanced environments</span> for multiple applications, enhancing system availability and resilience through infrastructure optimization</li>
+                    <li>Conducted <span class="keyword">source code audits</span> to maintain high quality and robust application performance standards</li>
+                    <li>Streamlined deployment workflows using <span class="keyword">CI/CD pipelines</span>, reducing errors and manual intervention by <span class="keyword">50%</span></li>
+                    <li>Acted as <span class="keyword">DevOps SME</span> and change coordinator for L3 application operations, ensuring smooth release and deployment cycles</li>
+                    <li>Automated repetitive infrastructure tasks through <span class="keyword">Shell scripting</span> and <span class="keyword">Oracle PL/SQL</span>, reducing manual efforts and improving SLA adherence</li>
+                    <li>Mentored and trained team members in <span class="keyword">DevOps practices</span> and automation techniques, enhancing team productivity</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    
+    <!-- PAGE 3 -->
+    <div class="page">
+        <div class="section">
+            <h2 class="section-title experience">Professional Experience (Continued)</h2>
+                        
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Senior Support Analyst</div>
+                        <div class="company">BNP Paribas</div>
+                    </div>
+                    <div class="job-date">Jan 2020 – Jan 2021</div>
+                </div>
+                <div class="job-project">Project: Vision Client Collateral Management</div>
+                <ul>
+                    <li>Delivered <span class="keyword">L2/L3 DevOps operations</span> for collateral management systems, ensuring consistent service uptime and rapid incident resolution</li>
+                    <li>Developed <span class="keyword">automation scripts</span> using <span class="keyword">Shell</span> and <span class="keyword">Oracle PL/SQL</span>, reducing manual operational efforts by <span class="keyword">35%</span></li>
+                    <li>Managed incidents and <span class="keyword">post-incident analysis</span> processes, conducting <span class="keyword">root cause analysis</span> to prevent recurrence and improve system reliability</li>
+                    <li>Coordinated <span class="keyword">application release and deployment</span> activities, ensuring high availability and compliance with operational standards</li>
+                    <li>Supervised a <span class="keyword">12-member operations team</span>, maintaining seamless operations and meeting SLA targets</li>
+                    <li>Successfully managed <span class="keyword">collateral processing workflows</span>, improving client claim processing efficiency through automation</li>
+                </ul>
+            </div>
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Senior Support Engineer</div>
+                        <div class="company">HCL</div>
+                    </div>
+                    <div class="job-date">Dec 2017 – Jan 2020</div>
+                </div>
+                <div class="job-project">Client: BNP Paribas | Projects: Money Transfer Management, Cash Claim Management, MTS Swift Tool</div>
+                <ul>
+                    <li>Engineered and maintained <span class="keyword">mission-critical money transfer systems</span>, ensuring <span class="keyword">99.9% uptime</span> and seamless transaction processing</li>
+                    <li>Developed <span class="keyword">automation frameworks</span> using <span class="keyword">Shell scripting</span> and <span class="keyword">Oracle PL/SQL</span>, reducing operational overhead and improving system efficiency</li>
+                    <li>Implemented <span class="keyword">monitoring and alerting solutions</span> for production environments, enabling proactive issue detection and resolution</li>
+                    <li>Collaborated with cross-functional teams to deliver application releases, ensuring <span class="keyword">zero-downtime deployments</span></li>
+                    <li>Built <span class="keyword">automated data processing pipelines</span> for financial transactions, improving processing speed and accuracy</li>
+                    <li>Led technical initiatives for <span class="keyword">Cash Claim Management</span> sub-application, optimizing workflows and enhancing system performance</li>
+                </ul>
+            </div>
+            
+            <div class="job">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Software Engineer</div>
+                        <div class="company">Syntel</div>
+                    </div>
+                    <div class="job-date">Sep 2014 – Dec 2017</div>
+                </div>
+                <div class="job-project">Clients: State Street Investment Management Services, FedEx</div>
+                <ul>
+                    <li>Developed and maintained <span class="keyword">enterprise data warehouse operations</span>, ensuring accurate master, market, and reference data management</li>
+                    <li>Automated <span class="keyword">financial data loads</span> and <span class="keyword">reporting processes</span>, reducing processing time and improving operational efficiency</li>
+                    <li>Implemented cross-functional collaboration to streamline <span class="keyword">data integration</span> and ensure seamless project delivery</li>
+                    <li>Designed and executed <span class="keyword">hybrid automation testing frameworks</span> using <span class="keyword">Selenium</span> and <span class="keyword">Java</span>, improving testing coverage and efficiency</li>
+                    <li>Automated test environment setups and execution, reducing manual interventions and enhancing reliability</li>
+                    <li>Created dynamic object-learning tools and <span class="keyword">performance analysis reports</span>, supporting informed business decision-making</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title projects">Open Source AI Projects</h2>
+            
+            <div class="project">
+                <div class="project-title">CarbonLens AI</div>
+                <a href="https://carbonlens-ai.solutionsynth.cloud/" class="project-link">https://carbonlens-ai.solutionsynth.cloud/</a>
+                <div class="project-desc">Intelligent supply chain carbon footprint tracker powered by AWS AI services. Automatically processes logistics documents and provides optimization recommendations using AI/ML models.</div>
+            </div>
+            
+            <div class="project">
+                <div class="project-title">AI Resume & Cover Letter Generator</div>
+                <a href="https://resume-generator-ai.solutionsynth.cloud/" class="project-link">https://resume-generator-ai.solutionsynth.cloud/</a>
+                <div class="project-desc">Intelligent career document generation platform powered by AI. Creates professional, ATS-optimized resumes and personalized, compelling cover letters tailored to job descriptions using LLMs, natural language processing, and advanced GenAI with prompt engineering techniques.</div>
+            </div>
+            
+            <div class="project">
+                <div class="project-title">AI Content Studio</div>
+                <a href="https://ai-content-studio.solutionsynth.cloud/" class="project-link">https://ai-content-studio.solutionsynth.cloud/</a>
+                <div class="project-desc">Serverless AI-powered content generation platform that transforms ideas into professional, SEO-optimized articles and web content using multi-agent workflow system.</div>
+            </div>
+            
+            <div class="project">
+                <div class="project-title">Profilia</div>
+                <a href="https://profilia.solutionsynth.cloud/" class="project-link">https://profilia.solutionsynth.cloud/</a>
+                <div class="project-desc">Professional online portfolio creation platform. Create stunning portfolios to showcase your work and attract opportunities.</div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">Synth AI</div>
+                <a href="https://solutionsynth.cloud/" class="project-link">https://solutionsynth.cloud/</a>
+                <div class="project-desc">Comprehensive AI solutions platform powered by AWS services and modern AI frameworks.</div>
+            </div>    
+        </div>
+    </div>
+</body>
+</html>
